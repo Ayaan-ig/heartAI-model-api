@@ -14,6 +14,10 @@ app = Flask(__name__)
 columns = ['Age', 'Gender', 'Cholesterol', 'Blood Pressure', 'Heart Rate', 'Smoking', 'Alcohol Intake',
            'Exercise Hours', 'Family History', 'Diabetes', 'Obesity', 'Stress Level',
            'Blood Sugar', 'Exercise Induced Angina', 'Chest Pain Type']
+@app.route('/')
+def start():
+    return "welcome to heartAI api"
+
 
 @app.route('/predict', methods=['POST'])
 def predict():
@@ -38,6 +42,3 @@ def predict():
 
     
     return jsonify({'result' : prediction_result})
- 
-if __name__ == '__main__':
-    app.run(debug=True)
